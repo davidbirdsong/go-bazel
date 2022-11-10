@@ -1,0 +1,17 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library")
+
+go_library(
+    name = "subpackage",
+    srcs = glob(
+        ["*.go"],
+        exclude = [
+            "*.pb.go",
+            "*_test.go",
+        ],
+    ),
+    importpath = "bazel-go/ar/bi/tr/ary/depth/subpackage",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//random/go-path:types",
+    ],
+)
